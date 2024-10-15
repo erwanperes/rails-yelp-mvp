@@ -1,0 +1,38 @@
+<div class="restaurant-card">
+	<h2 class="card-title">
+		<%= @restaurant.name %>
+	</h2 >
+	<div class="description">
+		<p><strong>Address: </strong><%= @restaurant.address %></p>
+		<p><strong>Category: </strong><%= @restaurant.category %></p>
+		<p><strong>Phone number: </strong><%= @restaurant.phone_number %></p>
+	</div>
+	<hr>
+	<h2 class="card-reviews">
+		Reviews
+	</h2>
+	<ul>
+	  <% @restaurant.reviews.each do |review| %>
+		<li>
+		  <strong>Rating:</strong> <%= review.rating %>
+		  <br>
+		  <strong>Content:</strong> <%= review.content %>
+		</li>
+	  <% end %>
+	</ul>
+	<hr>
+	<h2>Add a Review</h2>
+	  <%= simple_form_for [@restaurant, @restaurant.reviews.build] do |form| %>
+		<div>
+		  <%= form.input :rating, collection: 1..5 %>
+		</div>
+		<div>
+		  <%= form.input :content %>
+		</div>
+		<div>
+		  <%= form.submit %>
+		</div>
+	  <% end %>
+</div>
+<hr>
+<%= link_to 'Back to Index', restaurants_path %>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsYelpMvp</title>
+    <title>Simple Reviews</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar bg-body-tertiary bg-light">
+      <div class="container-fluid">
+        <%= link_to "Simple Reviews", root_path, class: 'navbar-brand text-dark' %>
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <%= link_to "New restaurant", new_restaurant_path, class: 'btn btn-primary' %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

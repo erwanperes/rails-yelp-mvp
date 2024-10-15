@@ -1,0 +1,14 @@
+<div class="row mt-4">
+	<div class="col">
+		<h1 class="mb-4">Restaurants list</h1>
+		<% @restaurants.each do |restaurant| %>
+		<div class="restaurant-link">
+			<h3 class="restaurant-title">
+				<%= link_to restaurant.name, restaurant%>
+			</h3 >
+		</div>
+		<% end %>
+	</div>
+</div> 
+
+
